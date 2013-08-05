@@ -89,8 +89,8 @@ public class HelloLua extends Cocos2dxActivity{
 		myHandler.passTime = (new Date().getTime())/1000;
 		myHandler.since = (new Date().getTime())/1000;
 		myHandler.setHelloLua(this);
-		setUpAds();
-		showBanner();
+		//setUpAds();
+		//showBanner();
 	}
 	private void showBanner(){
 		layout.setVisibility(View.VISIBLE);

@@ -21,17 +21,17 @@ local function main()
     require "data"
     require "util"
     require "Class"
-    require "Board"
+    require "Screen"
 
 
     local visibleSize = CCDirector:sharedDirector():getVisibleSize()
     local origin = CCDirector:sharedDirector():getVisibleOrigin()
 
 
-    local game = Board.new()
+    local screen = Screen.new()
     -- run
     local sceneGame = CCScene:create()
-    sceneGame:addChild(game.bg)
+    sceneGame:addChild(screen.bg)
 
     CCDirector:sharedDirector():runWithScene(sceneGame)
 end
