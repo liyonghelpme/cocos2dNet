@@ -31,6 +31,7 @@ CCHttpRequest* CCHttpRequest::createWithUrlLua(int nHandler, const char* url, bo
     request->initHttpRequest();
     request->autorelease();
     request->retain();
+    CCLog("request count is? %d", request->retainCount());
     return request;
 }
 
@@ -131,6 +132,7 @@ const char* CCHttpRequest::getErrorMessage(void)
 
 void CCHttpRequest::update(float dt)
 {
+    CCLog("update Request state %d", retainCount());
     CCHttpRequest_impl* request = (CCHttpRequest_impl*)m_request;
     if (!request || !request->getIsInProgress())
     {
@@ -149,6 +151,7 @@ void CCHttpRequest::update(float dt)
 			engine->getLuaStack()->clean();
 			engine->getLuaStack()->pushBoolean(isSuc);
 			engine->getLuaStack()->executeFunctionByHandler(m_luaHandler, 1);
+            CCLog("afterHandler retainCount %d", retainCount());
 			/*
             cocos2d::CCLuaValueDict dict;
             dict["name"] = cocos2d::CCLuaValue::stringValue("completed");

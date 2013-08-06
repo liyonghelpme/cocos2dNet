@@ -22,7 +22,8 @@ local function main()
     require "util"
     require "Class"
     require "Screen"
-
+    require "Network"
+    Network.httpRequest()
 
     local visibleSize = CCDirector:sharedDirector():getVisibleSize()
     local origin = CCDirector:sharedDirector():getVisibleOrigin()
